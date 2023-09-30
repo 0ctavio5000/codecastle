@@ -1,0 +1,32 @@
+{%if request.user.is_authenticated%}
+    <p>{{request.user}}</p>
+    <a href=''>salir</a>
+{% else %}
+    <a href='{%url 'login' %}'>ingresar</a>
+{% endif %}
+<hr>
+<h1>Code Castle</h1>
+
+<table> 
+   <tr>
+        <th>Elementos</th>
+     
+   </tr>
+
+   {%for tarea in tareas%}
+   <tr>
+
+    <td>
+        {{tarea.titulo}}
+    </td>
+    
+    <td> <a href='{% url 'tarea' tarea %}'> ver</a> </td>
+
+   </tr>
+   {%empty%}
+   <h3>No hay Elementosh3</h3>
+
+   {%endfor%}
+
+   
+</table>
